@@ -1,4 +1,4 @@
-package com.originapi.originapi;
+package originApiMain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
