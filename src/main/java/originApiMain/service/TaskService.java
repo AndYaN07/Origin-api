@@ -1,5 +1,7 @@
 package originApiMain.service;
 
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import originApiMain.exception.TaskNotFoundException;
 import originApiMain.model.Task;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 //Actualizar tareas
 //Eliminar tareas
 
+@Service
 public class TaskService {
 
     //Utilizaremos memoria local por eso definimos:
@@ -27,9 +30,19 @@ public class TaskService {
         return task;
     }
 
-    //Metodo para listar las tareas almacenadas
+    //Metodo para listar todas las tareas almacenadas
     public List<Task> getAll(){
         return tasks;
+    }
+
+    //Metodo para listar la tarea especifica por ID
+    public Task getById(@PathVariable int id){
+        for (Task task : tasks){
+            if(task.getId() == id){
+                return task;
+            }
+        }
+        throw new TaskNotFoundException(id);
     }
 
     //Metodo para actualizar una tarea

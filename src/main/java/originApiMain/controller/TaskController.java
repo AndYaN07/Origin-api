@@ -29,6 +29,12 @@ public class TaskController {
         return service.getAll();
     }
 
+    //Metodo para Enpoint Get /tasks = devolver una tarea especifica por ID
+    @GetMapping("/{id}")
+    public Task getById(int id){
+        return service.getById(id);
+    }
+
     //Metodo para Endpoint POST /tasks = crear nueva tarea
     @PostMapping
     public Task create(@RequestBody Task task) {
