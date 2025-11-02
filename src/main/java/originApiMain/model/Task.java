@@ -3,7 +3,7 @@ package originApiMain.model;
 //Esta clase es para las tareas de la aplicacion
 
 public class Task {
-    private int id; //Id unico e individual de cada tarea
+    private Integer id; //Id unico e individual de cada tarea
     private String title; //Nombre de cada tarea
     private String description; //Breve descripcion de la tarea
     private boolean completed; //False = incompleto, True = completo
@@ -11,18 +11,18 @@ public class Task {
     public Task() {
     }
 
-    public Task(int id, String title, String description, boolean completed) {
+    public Task(Integer id, String title, String description, boolean completed) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.completed = completed;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

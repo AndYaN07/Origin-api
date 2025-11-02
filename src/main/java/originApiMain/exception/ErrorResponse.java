@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 
 public class ErrorResponse {
     private LocalDateTime timestamp;
-    private int status;
+    private Integer status;
     private String message;
     private String path;
 
-    public ErrorResponse(LocalDateTime timestamp, int status, String message, String path) {
+    public ErrorResponse(LocalDateTime timestamp, Integer status, String message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.message = message;
@@ -22,7 +22,7 @@ public class ErrorResponse {
         return timestamp;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 

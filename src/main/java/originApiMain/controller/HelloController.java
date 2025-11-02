@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // Esta clase es un RestController de Spring Boot
 // Maneja endpoints básicos de prueba para OriginAPI
+//Fue creada para verificar la puesta en marcha del proyecto.
 
 @RestController
 

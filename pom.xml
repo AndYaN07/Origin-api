@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.originapi</groupId>
 	<artifactId>originapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>OriginApi</name>
 	<description>API REST para gestión de tareas (To-Do List)</description>
 	<url/>

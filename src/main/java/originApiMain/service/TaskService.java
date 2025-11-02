@@ -20,7 +20,7 @@ public class TaskService {
     //Lista para almacenar las tareas
     private List<Task> tasks = new ArrayList<>();
     //Contador para asignar ID a cada tarea
-    private int nextId = 1;
+    private Integer nextId = 1;
 
     //Metodo para creacion de tarea
     public Task create(String title, String description){
@@ -36,7 +36,7 @@ public class TaskService {
     }
 
     //Metodo para listar la tarea especifica por ID
-    public Task getById(@PathVariable int id){
+    public Task getById(@PathVariable Integer id){
         for (Task task : tasks){
             if(task.getId() == id){
                 return task;
@@ -46,7 +46,7 @@ public class TaskService {
     }
 
     //Metodo para actualizar una tarea
-    public Task update(int id, String title, String description, boolean completed){
+    public Task update(Integer id, String title, String description, boolean completed){
         for (Task task : tasks){
             if(task.getId() == id){
                 task.setTitle(title);
@@ -59,7 +59,7 @@ public class TaskService {
     }
 
     //Metodo para eliminar una tarea
-    public void delete(int id){
+    public void delete(Integer id){
         for (Task task : tasks){
             if (task.getId() == id){
                 tasks.remove(task);

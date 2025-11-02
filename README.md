@@ -39,11 +39,13 @@ Durante el desarrollo de OriginAPI me propuse:
 ## ⚙️ Estructura del proyecto
 
 La estructura del proyecto es sencilla.  
-Dentro de `src/main/java` tengo tres carpetas principales:
+Dentro de `src/main/java` tengo cinco carpetas principales:
 
-- **controller** → los controladores REST, donde se definen los endpoints.  
-- **service** → la lógica de negocio, lo que ocurre detrás de los endpoints.  
+- **controller** → los controladores REST, donde se definen los endpoints.
+- **exception** → las clases que controlan y personalizan mensajes para las excepciónes.
 - **model** → las clases que representan los datos (entidades y DTOs).
+- **service** → la lógica de negocio, lo que ocurre detrás de los endpoints.  
+- **utils** → las clases para realizar validaciones.  
 
 En `src/main/resources` están los archivos de configuración y propiedades.  
 La carpeta `test` está reservada para pruebas unitarias e integración.  
@@ -57,6 +59,7 @@ Nada muy complejo, pero suficiente para mantener todo ordenado desde el principi
 
 ## 🧪 Próximos pasos
 
+- Integrar validaciones de entrada de datos(@NotNull, @Unique).
 - Integrar una base de datos relacional (PostgreSQL).  
 - Añadir pruebas unitarias con JUnit y Mockito.  
 - Documentar la API con Swagger u OpenAPI.  
@@ -91,3 +94,10 @@ Este proyecto está bajo la licencia **MIT**, por lo que puede usarse libremente
 ---
 
 ✨ OriginAPI es el punto donde dejé el volante para tomar el teclado. Después de miles de kilómetros en carretera, decidí empezar un viaje distinto: el del desarrollo de software.
+
+---
+
+**API COMPLETA Y FUNCIONAL** 
+
+En un futuro se agregaran validaciones de entrada.
+Puedes ver las pruebas de **CRUD** realizadas en Postman aqui: [Postman](postman/OriginAPI.postman_collection.json)

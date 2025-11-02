@@ -23,33 +23,33 @@ public class TaskController {
         this.service = service;
     }
 
-    //Metodo para Endpoint GET /tasks = devolver lista de tareas
+    //Metodo para Endpoints GET /tasks = devolver lista de tareas
     @GetMapping
     public List<Task> getAll() {
         return service.getAll();
     }
 
-    //Metodo para Enpoint Get /tasks = devolver una tarea especifica por ID
+    //Metodo para Endpoints Get /tasks = devolver una tarea especifica por ID
     @GetMapping("/{id}")
-    public Task getById(int id){
+    public Task getById(@PathVariable Integer id){
         return service.getById(id);
     }
 
-    //Metodo para Endpoint POST /tasks = crear nueva tarea
+    //Metodo para Endpoints POST /tasks = crear nueva tarea
     @PostMapping
     public Task create(@RequestBody Task task) {
         return service.create(task.getTitle(), task.getDescription());
     }
 
-    //Metodo para Endpoint PUT /tasks/{id} = actualizar tarea
+    //Metodo para Endpoints PUT /tasks/{id} = actualizar tarea
     @PutMapping("/{id}")
-    public Task update(@PathVariable int id, @RequestBody Task task) {
+    public Task update(@PathVariable Integer id, @RequestBody Task task) {
         return service.update(id, task.getTitle(), task.getDescription(), task.isCompleted());
     }
 
-    //Metodo para Endpoint DELETE /tasks/{id} = eliminar tarea
+    //Metodo para Endpoints DELETE /tasks/{id} = eliminar tarea
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable int id) {
+    public String delete(@PathVariable Integer id) {
         service.delete(id);
         return "☑️ Tarea eliminada con exito";
     }
