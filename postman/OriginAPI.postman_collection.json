@@ -1,411 +1,104 @@
 {
 	"info": {
-		"_postman_id": "1586b757-f22d-418b-a40b-33f0eb218e09",
 		"name": "OriginAPI",
-		"description": "Esta colección de Postman permite explorar y probar fácilmente mi OriginAPI. Incluye todos los endpoints disponibles, ejemplos de requests y respuestas, y está lista para usar sin configuración adicional.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "49733838",
-		"_collection_link": "https://anderson7guanche-8187786.postman.co/workspace/Anderson-Guanche's-Workspace~8d13bb7c-8f65-4b6a-823c-e7527715c414/collection/49733838-1586b757-f22d-418b-a40b-33f0eb218e09?action=share&source=collection_link&creator=49733838"
+		"description": "Endpoints de Origin API. Ajusta la variable baseUrl si la API no corre en http://localhost:8080.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
+	"variable": [
+		{ "key": "baseUrl", "value": "http://localhost:8080" },
+		{ "key": "taskId", "value": "1" }
+	],
 	"item": [
 		{
-			"name": "Obtener una tarea por su ID",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/tasks/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tasks",
-						"1"
-					]
-				}
-			},
-			"response": [
+			"name": "Crear tarea",
+			"event": [
 				{
-					"name": "Obtener una tarea por su ID",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/tasks/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"tasks",
-								"1"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 02 Nov 2025 14:16:50 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"title\": \"Probar UPDATE y DELETE\",\n    \"description\": \"Tarea de verificación final del CRUD.\",\n    \"completed\": false\n}"
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Devuelve 201', () => pm.response.to.have.status(201));",
+							"pm.collectionVariables.set('taskId', pm.response.json().id);"
+						]
+					}
 				}
-			]
-		},
-		{
-			"name": "Obtener todas las tareas",
+			],
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/tasks",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tasks"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Obtener todas las tareas",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/tasks",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"tasks"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 02 Nov 2025 13:28:02 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "[]"
-				}
-			]
-		},
-		{
-			"name": "Crear nueva tarea",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
-				"header": [],
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Probar UPDATE y DELETE\",\r\n    \"description\": \"Tarea de verificación final del CRUD.\",\r\n    \"completed\": false\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n  \"title\": \"Preparar entrevista técnica\",\n  \"description\": \"Repasar Spring Boot, JPA y SQL\",\n  \"priority\": \"ALTA\",\n  \"dueDate\": \"2026-12-15\"\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8080/tasks",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tasks"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Crear nueva tarea",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Probar UPDATE y DELETE\",\r\n    \"description\": \"Tarea de verificación final del CRUD.\",\r\n    \"completed\": false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/tasks",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"tasks"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 02 Nov 2025 13:29:06 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"title\": \"Probar UPDATE y DELETE\",\n    \"description\": \"Tarea de verificación final del CRUD.\",\n    \"completed\": false\n}"
-				}
-			]
+				"url": { "raw": "{{baseUrl}}/tasks", "host": ["{{baseUrl}}"], "path": ["tasks"] }
+			}
 		},
 		{
-			"name": "Modificar una tarea",
+			"name": "Listar tareas (paginado)",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
+				"method": "GET",
+				"url": {
+					"raw": "{{baseUrl}}/tasks?page=0&size=10&sort=createdAt,desc",
+					"host": ["{{baseUrl}}"],
+					"path": ["tasks"],
+					"query": [
+						{ "key": "page", "value": "0" },
+						{ "key": "size", "value": "10" },
+						{ "key": "sort", "value": "createdAt,desc" }
+					]
+				}
+			}
+		},
+		{
+			"name": "Listar tareas pendientes de prioridad ALTA",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "{{baseUrl}}/tasks?completed=false&priority=ALTA&sort=dueDate,asc",
+					"host": ["{{baseUrl}}"],
+					"path": ["tasks"],
+					"query": [
+						{ "key": "completed", "value": "false" },
+						{ "key": "priority", "value": "ALTA" },
+						{ "key": "sort", "value": "dueDate,asc" }
+					]
+				}
+			}
+		},
+		{
+			"name": "Obtener tarea por id",
+			"request": {
+				"method": "GET",
+				"url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] }
+			}
+		},
+		{
+			"name": "Actualizar tarea",
+			"request": {
 				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Probar UPDATE y DELETE\",\r\n    \"description\": \"Tarea de verificación final del CRUD.\",\r\n    \"completed\": true\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\n  \"title\": \"Preparar entrevista técnica\",\n  \"description\": \"Repasar Spring Boot, JPA y SQL\",\n  \"completed\": true,\n  \"priority\": \"ALTA\",\n  \"dueDate\": \"2026-12-15\"\n}"
 				},
-				"url": {
-					"raw": "http://localhost:8080/tasks/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tasks",
-						"1"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Modificar una tarea",
-					"originalRequest": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Probar UPDATE y DELETE\",\r\n    \"description\": \"Tarea de verificación final del CRUD.\",\r\n    \"completed\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/tasks/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"tasks",
-								"1"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 02 Nov 2025 14:18:29 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"title\": \"Probar UPDATE y DELETE\",\n    \"description\": \"Tarea de verificación final del CRUD.\",\n    \"completed\": true\n}"
-				}
-			]
+				"url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] }
+			}
 		},
 		{
-			"name": "Eliminar una tarea",
+			"name": "Eliminar tarea",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/tasks/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"tasks",
-						"1"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Eliminar una tarea",
-					"originalRequest": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:8080/tasks/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"tasks",
-								"1"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "",
-					"header": [
-						{
-							"key": "Content-Type",
-							"value": "text/plain;charset=UTF-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "32"
-						},
-						{
-							"key": "Date",
-							"value": "Sun, 02 Nov 2025 14:19:15 GMT"
-						},
-						{
-							"key": "Keep-Alive",
-							"value": "timeout=60"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "☑️ Tarea eliminada con exito"
-				}
-			]
+				"url": { "raw": "{{baseUrl}}/tasks/{{taskId}}", "host": ["{{baseUrl}}"], "path": ["tasks", "{{taskId}}"] }
+			}
+		},
+		{
+			"name": "Error: crear sin título (400)",
+			"request": {
+				"method": "POST",
+				"header": [{ "key": "Content-Type", "value": "application/json" }],
+				"body": { "mode": "raw", "raw": "{\n  \"title\": \"\"\n}" },
+				"url": { "raw": "{{baseUrl}}/tasks", "host": ["{{baseUrl}}"], "path": ["tasks"] }
+			}
 		}
 	]
 }
