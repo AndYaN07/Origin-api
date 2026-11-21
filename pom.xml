@@ -8,31 +8,50 @@
 		<version>3.5.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.originapi</groupId>
+	<groupId>io.github.andyan07</groupId>
 	<artifactId>originapi</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>OriginApi</name>
-	<description>API REST para gestión de tareas (To-Do List)</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+	<description>API REST de gestión de tareas con Spring Boot, JPA y PostgreSQL</description>
+
 	<properties>
 		<java.version>17</java.version>
+		<springdoc.version>2.8.9</springdoc.version>
 	</properties>
+
 	<dependencies>
+		<!-- API REST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- Validación de datos de entrada (Bean Validation) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<!-- Persistencia con JPA / Hibernate -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- Base de datos real (perfil "postgres", usada con Docker Compose) -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Base de datos en memoria para desarrollo y tests (no deja nada en disco) -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Documentación interactiva: /swagger-ui.html -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${springdoc.version}</version>
 		</dependency>
 
 		<dependency>

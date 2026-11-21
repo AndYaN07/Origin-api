@@ -1,4 +1,4 @@
-package originApiMain;
+package io.github.andyan07.originapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class OriginApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(OriginApiApplication.class, args);
     }
-
 }
